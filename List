@@ -1,0 +1,30 @@
+list = ["Apple", "Banana", "Mango", "Orange", "Kiwi"]
+
+print("lenth of the list", len(list))
+
+print("First element of the list", list[0])
+
+print("Last element of the list", list[-1])
+
+list.append("Papaya")
+print("updated list", list)
+
+list.remove("Mango")
+print("updated list", list)
+
+list.sort()
+print("sorted list", list)
+
+list.pop(2)
+print("updated list", list)
+
+list.reverse()
+print("reversed list", list)
+
+print("Multiplication of list", 2 * list)
+
+list[:4]
+print("Sliced list", list)
+
+list.clear()
+print("cleared list", list)
