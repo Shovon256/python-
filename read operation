@@ -1,0 +1,12 @@
+with open('codingal.txt', 'r') as file:
+	print("Open Only the first line.")
+	print(file.readline())
+
+with open('codingal.txt', 'r') as file:
+	print("Read multiple lines.")
+	print(file.readlines())
+
+with open('codingal.txt', 'r') as file:
+	print("Loop through the lines.")
+	for line in file:
+		print(line, end='')
