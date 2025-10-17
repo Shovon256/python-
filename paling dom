@@ -1,0 +1,13 @@
+def is_palindrome(string):
+    leftpossition = 0
+    rightposition = len(string) - 1
+
+    while rightposition >= leftpossition:
+        if not string[rightposition] == string[leftpossition]:
+            return False
+        leftpossition += 1
+        rightposition -= 1
+    return True
+
+print("Is this a palindrome?")
+print(is_palindrome("madam"))
