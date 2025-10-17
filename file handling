@@ -1,0 +1,13 @@
+new_file = open("newfile.txt", "x")
+new_file.close()
+
+import os
+
+print("Checking if the file does exists or not...")
+
+if os.path.exists("codingalUpdate.txt"):
+    os.remove("codingalUpdate.txt")
+else:
+    print("the file doesn't exist.")
+
+os.rmdir("coding")
