@@ -1,0 +1,72 @@
+import turtle 
+
+class Face:
+    
+    def __init__(self, xpos, ypos):
+
+        self.size = 90
+        self.coord = (xpos, ypos)
+        self.mousesize = "small"
+            
+            
+        def setsize(self, radius):
+    
+            self.size = radius
+                
+        def draw(self):
+            turtle.home()   
+            turtle.pensize(3)
+            turtle.speed(0)
+            self.drawface()
+            self.draweyes(135)
+            self.draweyes(45)
+            self.drawmouth()
+            self.drawnose()
+            turtle.pensize(5)
+            
+        def gohome(self):
+            turtle.penup()
+            turtle.goto(self.coord)
+            turtle.pendown(0)
+                
+        def drawoutline(self):
+            turtle.penup()
+            turtle.forward(self.size)
+            turtle.left(90)
+            turtle.pendown()
+            self.gohome()
+                
+        def draweyes(self, turn):
+            turtle.penup()
+            turtle.left(turn)
+            turtle.forward(self.size/2)    
+            turtle.pendown()
+            turtle.dot(self.size / 10)
+            self.gohome()
+
+        def drawmouth(self):
+            turtle.penup()
+            turtle.right(90)
+            turtle.forward(self.size / 1.7)
+            turtle.left(90)
+            turtle.pendown()
+            turtle.circle(self.size, 90)
+            self.gohome()
+            
+        def drawnose(self):
+            if self.nosesize == "large":
+                turtle.dot(self.size / 2, "grey")
+            elif self.nosesize == "small":
+                turtle.dot(self.size / 4, "lightgrey")
+            else:
+                turtle.dot(self.size / 4, "grye")    
+            self.gohome()
+            
+            
+f1 = Face(0, 0)
+f1.draw()            
+turtle.showturtle()
+turtle.done()
+                
+
+            
