@@ -1,0 +1,211 @@
+import sys
+from tabnanny import check
+
+
+def initial_phonebook():
+    rows, cols = int(input("Please enter the initial number of the contacts: ")), 5
+
+    phonebook = []
+    print(phonebook)
+
+    for i in range(rows):
+        temp = []
+
+        for j in range(cols):
+            if j == 0:
+                name = str(input("Enter a name : *"))
+                if name.strip() == "":
+                    sys.exit()
+
+    if j == 1:
+        temp.append(int(input("Enter the number : *")))
+
+    if j == 2:
+        temp.append(str(input("Enter the email address: ")))
+        if temp[j].strip() == "":
+            temp[j] = None
+
+            if j == 3:
+                temp.append(str(input("Enter the date of birth (dd/mm/yy): ")))
+                if temp[j].strip() == "":
+                    temp[j] = None
+
+        if j == 4:
+            temp.append(str(input("Enter category Family/Friends/Works/Others: ")))
+            if temp[j].strip() == "":
+                temp[j] = None
+
+    phonebook.append(temp)
+    print(phonebook)
+    return phonebook
+
+
+def menu():
+    print("*************************************************************")
+    print("\t\tSMARTPHONE DIRECTORY")
+    print("*************************************************************")
+    print("\nYou can now perform the following operations on this phonebook:\n")
+    print("1. Add a new contact")
+    print("2. Remove an existing contact")
+    print("3. Delete all contacts")
+    print("4. Search for a contact")
+    print("5. Display all contacts")
+    print("6. Exit phonebook")
+
+    choice = int(input("Enter your choice: "))
+
+    return choice
+
+
+def add_contact(pb):
+    dip = []
+
+    for i in range(len(pb[0])):
+        if i == 0:
+            dip.append(str(input("Enter your name: ")))
+        if i == 1:
+            dip.append(int(input("Enter the number here: ")))
+        if i == 2:
+            dip.append(str(input("Enter the email-address here: ")))
+        if i == 3:
+            dip.append(str(input("Enter the date of birth dd/mm/yy: ")))
+        if i == 4:
+            dip.append(str(input("Enter category (Family/Friends/Works/Others): ")))
+
+    pb.append(dip)
+    return pb
+
+
+def remove_existing_contact(pb):
+
+    query = input("Enter the name of the contact you want to remove: ")
+    temp = 0
+    for i in range(len(pb)):
+
+        if i in range(len(pb)):
+            temp = 0
+            print(pb.pop(i))
+            print("Contact removed successfully.")
+
+            return pb
+
+    if temp == 0:
+        print("Contact not found.")
+
+        return pb
+
+
+def delete_all(pb):
+    return pb.clear()
+
+
+def search_contact(pb):
+
+    def search_existing(pb):
+
+        choice = int(
+            input(
+                "Enter search criteria\n\n 1. Name\n 2. Number\n 3. Email-ID\n 4. DOB\n 5. Category(Family/Friends/Work/Others)\n\n Please enter:"
+            )
+        )
+
+        check = -1
+        temp = []
+
+        if choice == 1:
+            query = str(
+                input("Please enter the name of the contact you wish to search: ")
+            )
+
+            for i in range(len(pb)):
+
+                if query.lower() == pb[i][0].lower():
+                    check = i
+                    temp.append(pb[i])
+
+            query = str(
+                input("Please enter the number of the contact you wish to search: ")
+            )
+
+            for i in range(len(pb)):
+
+                if query == pb[i][1]:
+                    check = i
+                    temp.append(pb[i])
+
+        # ... (This is where the search loops for choice 1, 2, 3, etc. would end)
+        else:
+            return -1
+
+
+# --- This block must be INSIDE your search function (e.g., search_existing) ---
+# It runs after all search criteria (choice 1, 2, etc.) have been checked.
+
+
+def search_existing(pb):
+    # pb is expected to be either:
+    #  - -1 when no matches were found, or
+    #  - a list of matching contact records to display.
+    if pb == -1 or not pb:
+        print("No contact found.")
+        return -1
+    else:
+        display_all(pb)
+        return 0
+
+
+# ----------------------------------------------------------------------------
+# --- The definition of the display_all function -----------------------------
+
+
+def display_all(pb):
+    # This function will display the contact list
+    # pb is the list of lists/tuples representing the phonebook.
+
+    if len(pb) == 0:
+        print("\n\t*** Phonebook is EMPTY! ***\n")
+        return
+
+    print("\n" + "=" * 70)
+    print("ALL CONTACTS IN PHONEBOOK:")
+    print("=" * 70)
+
+    # Print the header (assuming contact fields are: Name, Number, Email, DOB, Category)
+    print(
+        "{:<15} {:<15} {:<20} {:<10} {:<15}".format(
+            "NAME", "NUMBER", "EMAIL", "DOB", "CATEGORY"
+        )
+    )
+    print("-" * 70)
+
+    # Print all contacts
+    for contact in pb:
+        # Check for minimum number of fields before unpacking for clean display
+        if len(contact) >= 5:
+            # Unpacks the contact list/tuple into the format string
+            print("{:<15} {:<15} {:<20} {:<10} {:<15}".format(*contact))
+        else:
+            # Handles incomplete contact data gracefully
+            print(f"Error: Incomplete data for contact: {contact}")
+
+    print("=" * 70 + "\n")
+
+
+import sys
+import random
+
+
+def thanks():
+    messages = [
+        "Goodbye! Have a wonderful day ahead!",
+        "Thanks for using our Smartphone Directory System. See you soon!",
+        "Hope you had a good experience. Come back again!",
+        "Take care! Wishing you a pleasant day!",
+        "System closing... Thank you for visiting!",
+    ]
+
+    print("***********************************************************")
+    print("Thank you for using our Smartphone Directory System.")
+    print(random.choice(messages))
+    print("***********************************************************")
+sys.exit()
