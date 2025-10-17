@@ -1,0 +1,9 @@
+with open('codingal.txt', 'r') as file:
+    content = file.read()
+
+lines = content.splitlines()
+count = 0
+for l in lines:
+    if l:
+        count += 1
+print("Number of lines in the file:", count)
