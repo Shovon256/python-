@@ -1,0 +1,47 @@
+my_tuple = ()
+print(my_tuple)
+
+# tuples with integers
+my_tuple = (1, 2, 3, 4, 5)
+print(my_tuple)
+
+# mix tuples
+my_tuple = (1, "hello", [1, 2, 3, "h"])
+
+# nested tuples
+my_tuple = (1, 2, 3, (4, 5, 6), ["hi", "hello", 4])
+print(my_tuple)
+
+my_tuple = ("w", "e", "r", "y", "s", "f", "g")
+print(my_tuple[4])
+print(my_tuple[2])
+
+n_tuple = (1, 2, 3, (4, 5, 6), ["hi", "hello", 4])
+
+
+# tuple having integers
+my_tuple = (1, 2, 3)
+print(my_tuple)
+
+# tuple with mixed datatypes
+my_tuple = (1, "Hello", 3.4)
+print(my_tuple)
+
+# nested tuple
+my_tuple = ("mouse", [8, 4, 6], (1, 2, 3))
+print(my_tuple)
+
+# Accessing tuple elements using indexing
+my_tuple = ("p", "y", "e", "r", "m", "i", "t")
+print(my_tuple[0])
+print(my_tuple[5])
+
+# nested tuple
+n_tuple = ("mouse", [8, 4, 6], (1, 2, 3))
+
+# nested index
+print(n_tuple[0][3])
+print(n_tuple[1][1])
+
+# Slicing
+print("Sliced :", my_tuple[1:4])
